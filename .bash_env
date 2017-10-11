@@ -1,0 +1,7 @@
+export GOPATH="${HOME}/gopath/"
+export PATH="${HOME}/bin:${GOPATH}/bin:$PATH"
+
+export EDITOR="emacsclient -c"
+export VISUAL="emacsclient -c"
+
+export GPG_TTY=$(tty)
