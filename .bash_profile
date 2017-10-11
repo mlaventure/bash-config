@@ -5,7 +5,7 @@ then
 	source ~/.bashrc
 fi
 
-if command -v gpg-agent
+if command -v gpg-agent > /dev/null
 then
 	eval $(gpg-agent --daemon 2> /dev/null)
 fi

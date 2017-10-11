@@ -54,7 +54,6 @@ fi
 #
 # Environment
 #
-
 if [ -f ~/.bash_env ]; then
     . ~/.bash_env
 fi
@@ -67,10 +66,18 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+
+#
+# Direnv
+#
+if command -v direnv > /dev/null
+then
+	eval "$(direnv hook bash)"
+fi
+
 #
 # Prompt
 #
-
 if [ -f ~/.bash_prompt ]; then
     . ~/.bash_prompt
 fi
