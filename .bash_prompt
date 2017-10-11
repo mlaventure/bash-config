@@ -1,5 +1,16 @@
 #!/bin/bash
 
+case "$(uname -s)" in
+	Darwin)
+		if [ -f /usr/local/git/contrib/completion/git-prompt.sh ]
+		then
+		   . /usr/local/git/contrib/completion/git-prompt.sh
+		fi
+		;;
+	*)
+		;;
+esac
+
 # Get some nice aliases for the colors
 . ~/.bash_colors
 
@@ -19,11 +30,16 @@ set_prompt () {
 	PS1="\[\033]0;\u@\h: \w\007\]"
 	# Print the date and user
 	PS1+="[\[$BIYellow\]\D{%a, %F %I:%M:%S}\[$Reset\] - \[$userColor\]\u@\h\[$Reset\]]"
-	# Get git status with dirty state (* for unstaged, + for staged) and
-	# untracked files (%)
-	GIT_PS1_SHOWDIRTYSTATE="true"
-	GIT_PS1_SHOWUNTRACKEDFILES="true"
-	PS1+=" \$(__git_ps1 \"(\[$BIPurple\]%s\\[$Reset\])\")\n"
+
+	# Get some git info if installed
+	if declare -f __git_ps1
+	then
+		# Get git status with dirty state (* for unstaged, + for staged) and
+		# untracked files (%)
+		GIT_PS1_SHOWDIRTYSTATE="true"
+		GIT_PS1_SHOWUNTRACKEDFILES="true"
+		PS1+=" \$(__git_ps1 \"(\[$BIPurple\]%s\\[$Reset\])\")\n"
+	fi
 
 	# Add a bright white exit status for the last command
     PS1+="\[$White\]\$? "

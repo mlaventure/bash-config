@@ -1,3 +1,14 @@
+#!/bin/bash
+
+case "$(uname -s)" in
+	Darwin)
+		# Add homebrew first
+		export PATH="/usr/local/bin:$PATH"
+		;;
+	*)
+		;;
+esac
+
 export GOPATH="${HOME}/gopath/"
 export PATH="${HOME}/bin:${GOPATH}/bin:$PATH"
 
