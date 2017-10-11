@@ -32,7 +32,7 @@ set_prompt () {
 	PS1+="[\[$BIYellow\]\D{%a, %F %I:%M:%S}\[$Reset\] - \[$userColor\]\u@\h\[$Reset\]]"
 
 	# Get some git info if installed
-	if declare -f __git_ps1
+	if [ "$(type -t __git_ps1)" = "function" ]
 	then
 		# Get git status with dirty state (* for unstaged, + for staged) and
 		# untracked files (%)
