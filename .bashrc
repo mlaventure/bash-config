@@ -49,7 +49,7 @@ if ! shopt -oq posix; then
 fi
 
 # custom compleion scripts
-. ${HOME}/.bash_completion.d/*
+. ${HOME}/.bash_completion.d/* 2> /dev/null
 
 #
 # Environment
