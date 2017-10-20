@@ -68,16 +68,17 @@ fi
 
 
 #
-# Direnv
+# Prompt
+#
+if [ -f ~/.bash_prompt ]; then
+    . ~/.bash_prompt
+fi
+
+#
+# Direnv (must come last)
 #
 if command -v direnv > /dev/null
 then
 	eval "$(direnv hook bash)"
 fi
 
-#
-# Prompt
-#
-if [ -f ~/.bash_prompt ]; then
-    . ~/.bash_prompt
-fi
