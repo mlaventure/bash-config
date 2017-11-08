@@ -41,3 +41,8 @@ em() {
 pdftojpg() {
 	convert -density 300 -quality 100 $@
 }
+
+for a in $(ls ~/.bash_aliases_* 2>/dev/null)
+do
+	source $a
+done
