@@ -10,6 +10,7 @@ case "$(uname -s)" in
 		# copy from cli to clipboard
 		alias pbcopy="xclip -selection clipboard"
 		alias pbpaste="xclip -selection clipboard -o"
+		alias gnome-control-center='XDG_CURRENT_DESKTOP="GNOME" gnome-control-center'
 		;;
 	*)
 		;;
@@ -26,7 +27,6 @@ alias fgrep='egrep --color=auto'
 #
 # Function
 #
-
 
 e() {
 	emacsclient -c -a emacs $@ > /dev/null &
