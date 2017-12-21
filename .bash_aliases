@@ -24,6 +24,8 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias fgrep='egrep --color=auto'
 
+alias enw='emacsclient -c -a emacs -nw'
+
 #
 # Function
 #
