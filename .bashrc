@@ -4,7 +4,7 @@
 
 
 #
-# HISTORY 
+# HISTORY
 #
 
 # don't put duplicate lines or lines starting with space in the history.
@@ -81,4 +81,3 @@ if command -v direnv > /dev/null
 then
 	eval "$(direnv hook bash)"
 fi
-
