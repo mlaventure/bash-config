@@ -17,8 +17,8 @@ then
 	export PATH="$PATH:/usr/local/go/bin"
 fi
 
-export EDITOR="emacsclient -c -a emacs -nw"
-export VISUAL="emacsclient -c -a emacs -nw"
+export EDITOR="emacsclient -c -a emacs"
+export VISUAL="emacsclient -c -a emacs"
 
 export GPG_TTY=$(tty)
 
