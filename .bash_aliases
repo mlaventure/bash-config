@@ -31,17 +31,17 @@ alias enw='emacsclient -c -a emacs -nw'
 #
 
 e() {
-	emacsclient -c -a emacs $@ > /dev/null &
+	emacsclient -c -a emacs "$@" > /dev/null &
 	disown
 }
 
 em() {
-	emacs $@ 2> /dev/null &
+	emacs "$@" 2> /dev/null &
 	disown
 }
 
 pdftojpg() {
-	convert -density 300 -quality 100 $@
+	convert -density 300 -quality 100 "$@"
 }
 
 for a in $(ls ~/.bash_aliases_* 2>/dev/null)
