@@ -44,6 +44,12 @@ pdftojpg() {
 	convert -density 300 -quality 100 "$@"
 }
 
+dind() {
+	src=${1:-~/go/src/github.com/docker/docker}
+	tag=${2:-master}
+	docker run --rm --privileged -ti -v $(readlink -f $src):/go/src/github.com/docker/docker -v /var/lib/docker docker-dev:$tag bash
+}
+
 for a in $(ls ~/.bash_aliases_* 2>/dev/null)
 do
 	source $a
