@@ -74,10 +74,37 @@ if [ -f ~/.bash_prompt ]; then
     . ~/.bash_prompt
 fi
 
+# FZF : https://github.com/junegunn/fzf
+if [ -f ~/.fzf.bash ]; then
+    . ~/.fzf.bash
+    # Some options
+    export FZF_COMPLETION_TRIGGER='--'
+    # allow previwing long command lines, hidden by default
+    export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
+    if command -v bat > /dev/null; then
+        export FZF_COMPLETION_OPTS="--preview '[ -f {} ] && bat --color always {}' --preview-window 50%:wrap --bind '?:toggle-preview'"
+    fi
+
+    if command -v fd > /dev/null; then
+        # Use fd (https://github.com/sharkdp/fd) instead of the default find
+        # command for listing path candidates.
+        # - The first argument to the function ($1) is the base path to start traversal
+        # - See the source code (completion.{bash,zsh}) for the details.
+        _fzf_compgen_path() {
+            fd --hidden --follow --exclude ".git" . "$1"
+        }
+
+        # Use fd to generate the list for directory completion
+        _fzf_compgen_dir() {
+            fd --type d --hidden --follow --exclude ".git" . "$1"
+        }
+    fi
+fi
+
+
 #
 # Direnv (must come last)
 #
-if command -v direnv > /dev/null
-then
+if command -v direnv > /dev/null; then
 	eval "$(direnv hook bash)"
 fi
