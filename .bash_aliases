@@ -16,7 +16,7 @@ case "$(uname -s)" in
 		;;
 esac
 
-alias ls="$ls --color=auto"
+alias ls="$ls --color=auto -N"
 alias l='ls -l'
 alias la='l -a'
 
@@ -25,6 +25,11 @@ alias fgrep='fgrep --color=auto'
 alias fgrep='egrep --color=auto'
 
 alias enw='emacsclient -c -a emacs -nw'
+
+if command -v bat > /dev/null; then
+    alias bat='bat --style changes,numbers --theme 1337'
+    alias cat='bat'
+fi
 
 #
 # Function
