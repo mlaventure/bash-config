@@ -36,6 +36,9 @@ esac
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
+# add .local/bin to PATH (used by local python package installed via `pip
+# install --user <package>`)
+export PATH=$PATH:~/.local/bin
 
 #
 # Completion

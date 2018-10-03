@@ -57,3 +57,17 @@ set_prompt () {
 }
 
 PROMPT_COMMAND='set_prompt'
+
+# powerline
+if command -v powerline-daemon > /dev/null; then
+    powerline-daemon -q
+    POWERLINE_BASH_CONTINUATION=1
+    POWERLINE_BASH_SELECT=1
+    # python 3 or python 2?
+    RUNNING_PYTHON_VERSION="$(python --version |& cut -d' ' -f2 | cut -d'.' -f1)"
+    if [ $RUNNING_PYTHON_VERSION = "2" ]; then
+        . ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
+    else
+        . ~/.local/lib/python${RUNNING_PYTHON_VERSION}/site-packages/powerline/bindings/bash/powerline.sh
+    fi
+fi
