@@ -24,3 +24,5 @@ export GPG_TTY=$(tty)
 
 # Ensure ^D doesn't log us out wihtout warning
 export IGNOREEOF=9
+
+export MINICOM="--metakey --wrap"
