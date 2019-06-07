@@ -25,6 +25,7 @@ alias fgrep='fgrep --color=auto'
 alias fgrep='egrep --color=auto'
 
 alias enw='emacsclient -c -a emacs -nw'
+alias rg="rg --no-ignore"
 
 if command -v bat > /dev/null; then
     alias bat='bat --style changes,numbers --theme 1337'
