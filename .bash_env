@@ -10,6 +10,8 @@ case "$(uname -s)" in
 esac
 
 export GOPATH="${HOME}/go"
+# Do not go through Google's proxy
+export GOPROXY="direct"
 export PATH="${HOME}/bin:${GOPATH}/bin:$PATH"
 
 if [ -d /usr/local/go/bin ]
