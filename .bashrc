@@ -83,7 +83,7 @@ fi
 if [ -f ~/.fzf.bash ]; then
     . ~/.fzf.bash
     # Some options
-    export FZF_COMPLETION_TRIGGER='=='
+    export FZF_COMPLETION_TRIGGER='*'
     # allow previwing long command lines, hidden by default
     export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
     if command -v bat > /dev/null; then
@@ -105,7 +105,6 @@ if [ -f ~/.fzf.bash ]; then
         }
     fi
 fi
-
 
 #
 # Direnv (must come last)
