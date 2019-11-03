@@ -9,9 +9,11 @@
 
 # don't put duplicate lines or lines starting with space in the history.
 HISTCONTROL=ignoreboth
-# save 1000 lines both in meomry and on disk
-HISTSIZE=1000
-HISTFILESIZE=1000
+# save 100000 lines both in meomry and on disk
+HISTSIZE=100000
+HISTFILESIZE=100000
+HISTTIMEFORMAT="%h %d %H:%M:%S "
+
 # append to the history file, don't overwrite it
 shopt -s histappend
 
