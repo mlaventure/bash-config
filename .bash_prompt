@@ -64,7 +64,7 @@ if command -v powerline-daemon > /dev/null; then
     POWERLINE_BASH_CONTINUATION=1
     POWERLINE_BASH_SELECT=1
     # python 3 or python 2?
-    RUNNING_PYTHON_VERSION="$(python --version |& cut -d' ' -f2 | cut -d'.' -f1)"
+    RUNNING_PYTHON_VERSION="$(python --version |& cut -d' ' -f2 | cut -d'.' -f1-2)"
     if [ $RUNNING_PYTHON_VERSION = "2" ]; then
         . ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
     else
