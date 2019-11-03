@@ -11,3 +11,5 @@ then
 fi
 
 #xinput set-prop 'Logitech Performance MX' "Evdev Scrolling Distance" 2 1 1
+
+export PATH="$HOME/.cargo/bin:$PATH"
