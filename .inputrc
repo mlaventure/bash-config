@@ -1,4 +1,6 @@
+$if Bash
 set colored-stats on
+$endif
 
 "\e[1;5C": forward-word   # ctrl + right
 "\e[1;5D": backward-word  # ctrl + left
