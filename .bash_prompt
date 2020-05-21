@@ -14,6 +14,8 @@ esac
 # Get some nice aliases for the colors
 . ~/.bash_colors
 
+export LC_ALL="en_US.utf8"
+
 # Let's make a nice prompt
 set_prompt () {
     Last_Command=$? # Must come first!
@@ -21,15 +23,15 @@ set_prompt () {
     Checkmark='\342\234\223'
 
 	if [ $(id -u) -eq 0 ]; then
-		userColor=$BIRed
+		userColor="$BIRed"
 	else
-		userColor=$BIGreen
+		userColor="$BIGreen"
 	fi
 
 	# Update the title bar
 	PS1="\[\033]0;\u@\h: \w\007\]"
 	# Print the date and user
-	PS1+="[\[$BIYellow\]\D{%a, %F %I:%M:%S}\[$Reset\] - \[$userColor\]\u@\h\[$Reset\]]"
+	PS1="[\[$BIYellow\]\D{%a, %F %I:%M:%S}\[$Reset\] - \[$userColor\]\u@\h\[$Reset\]]"
 
 	# Get some git info if installed
 	if [ "$(type -t __git_ps1)" = "function" ]
@@ -38,21 +40,23 @@ set_prompt () {
 		# untracked files (%)
 		GIT_PS1_SHOWDIRTYSTATE="true"
 		GIT_PS1_SHOWUNTRACKEDFILES="true"
-		PS1+=" \$(__git_ps1 \"(\[$BIPurple\]%s\\[$Reset\])\")\n"
+        local git_fmt="(\[$BIPurple\]%s\[$Reset\])"
+		PS1+=" \$(__git_ps1 \"${git_fmt}\")\n"
 	fi
 
-	# Add a bright white exit status for the last command
-    PS1+="\[$White\]\$? "
+	# Add a bright white exit status for the last command and the time it took
+    # PS1+="\[$White\]\$? "
     # If it was successful, print a green check mark. Otherwise, print
     # a red X.
     if [[ $Last_Command == 0 ]]; then
-        PS1+="\[$Green\]$Checkmark "
+        PS1+="\[$Green\]"
     else
-        PS1+="\[$Red\]$FancyX "
+        PS1+="\[$Red\]"
     fi
+    PS1+="\$? "
     # Print the working directory and prompt marker in blue, and reset
     # the text color to the default.
-    PS1+="\[$BIBlue\]\w \$\[$Reset\] "
+    PS1+="\[$BIBlue\]\w \$\[$White\] "
 
 }
 
