@@ -20,8 +20,8 @@ if [ -d /usr/local/go/bin ]; then
 	export PATH="$PATH:/usr/local/go/bin"
 fi
 
-export EDITOR="emacsclient -c -a emacs"
-export VISUAL="emacsclient -c -a emacs"
+export EDITOR="emacs"
+export VISUAL="${EDITOR}"
 
 export GPG_TTY=$(tty)
 
