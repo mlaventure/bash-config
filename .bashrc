@@ -79,6 +79,13 @@ if [ -f ~/.bash_prompt ]; then
     . ~/.bash_prompt
 fi
 
+
+# work
+
+if [ -f ~/.bash_work ]; then
+    . ~/.bash_work
+fi
+
 # FZF : https://github.com/junegunn/fzf
 if [ -f ~/.fzf.bash ]; then
     . ~/.fzf.bash
