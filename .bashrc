@@ -40,7 +40,7 @@ esac
 
 # add .local/bin to PATH (used by local python package installed via `pip
 # install --user <package>`)
-export PATH="$PATH:${HOME}/.local/bin"
+export PATH="${HOME}/.local/bin:${PATH}"
 
 #
 # Completion
